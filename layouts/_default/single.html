@@ -2,17 +2,18 @@
 {{ define "header"}} {{ partial "header" .}} {{end}}
 
 {{ define "main" }}
-
 <div id="hero" class="wrap">
-  <h1>{{.Title }}</h1>
-    <p>{{.Params.description}}</p>
+    <h1>{{.Title }}</h1>
+    <p>{{.Params.author}}</p>
+    <p>{{dateFormat "Monday, Jan 2, 2006" .Params.date}}</p>
 </div>
-<ul id="posts">
+<article class="col col-6 offset-3">
+    {{ .Content }}
+    <a href="{{.CurrentSection.Permalink}}">Back to Issue</a>
+</article>
 
- {{ .Content }}
-  
-</ul>
-{{ end }} 
-{{ define "footer" }} 
-  {{ partial "footer" . }} 
+{{ end }}
+
+{{ define "footer" }}
+  {{ partial "footer" . }}
 {{ end }}

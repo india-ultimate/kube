@@ -1,0 +1,12 @@
+[{{ range $index, $page := .Site.Pages }}
+{{- if ne $page.Type "json" -}}
+{{- if and $index (gt $index 0) -}},{{- end }}
+{
+  "uri": "{{ $page.Permalink }}",
+  "title": "{{ replace $page.Title "\"" ""}}",
+  "author": "{{ $page.Params.author }}",
+  "issue": "{{ $page.Params.issue }}",
+  "content": {{$page.Plain | jsonify}}
+}
+{{- end -}}
+{{- end -}}]
