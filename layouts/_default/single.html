@@ -9,7 +9,9 @@
 </div>
 <article class="content col col-12">
     {{ .Content }}
+    {{ if .CurrentSection }}
     <a href="{{.CurrentSection.Permalink}}">Back to Issue</a>
+    {{ end }}
 </article>
 
 {{ end }}
