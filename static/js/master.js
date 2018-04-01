@@ -15,15 +15,20 @@ var setup_search = function(documents) {
     var modal_body = $(".modal-body");
     modal_body.children().remove();
     docs.forEach(function(doc) {
-      $("<p>")
+      var result = $("<p>")
         .append(
           $("<a>")
             .attr("href", doc.uri)
             .text(doc.title)
         )
-        .append($("<span style='display: block;'>").text(doc.author))
-        .append($("<span style='display: block;'>").text("Issue " + doc.issue))
         .appendTo(modal_body);
+
+      if (doc.author != "<no value>") {
+        result.append($("<span style='display: block;'>").text(doc.author));
+      }
+      if (doc.issue != "<no value>") {
+        result.append($("<span style='display: block;'>").text("Issue " + doc.issue));
+      }
     });
 
     $("#search-modal .close").click(function() {
