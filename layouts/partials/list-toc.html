@@ -1,0 +1,11 @@
+<nav id="contents">
+    <ol class="js-toc">
+        <ul class="toc-list">
+            {{ range .Paginator.Pages.ByWeight }}
+                <li>
+                    <a href="#{{ .Title | urlize }}" itemprop="headline">{{ .Title }} ({{.Params.author}})</a>
+                </li>
+            {{ end }}
+        </ul>
+    </ol>
+</nav>
