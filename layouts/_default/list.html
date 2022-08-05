@@ -9,6 +9,9 @@
             <p>Issue {{ (slicestr .Section 6) | strings.TrimLeft "0" }}</p>
         {{ end }}
     </div>
+    <div class="content col col-12">
+        {{ .Content }}
+    </div>
     {{ partial "list-toc" . }}
     <div class="content col col-12">
         {{ range .Paginator.Pages.ByWeight }} {{ partial "page-summary" . }} {{ end }}
