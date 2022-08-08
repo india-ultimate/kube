@@ -5,8 +5,10 @@
 <div id="main">
     <div id="hero" class="wrap">
         {{ if hasPrefix .Section "issue" }}
-            <h1>{{ (index $.Site.Data.issues (sub (int ((slicestr .Section 6)|strings.TrimLeft "0")) 1)).title }}</h1>
-            <p>Issue {{ (slicestr .Section 6) | strings.TrimLeft "0" }}</p>
+        <h1>
+          {{ (index $.Site.Data.issues (sub (int ((slicestr .Section 6)|strings.TrimLeft "0")) 1)).title }}
+        </h1>
+        <p>Issue {{ (slicestr .Section 6) | strings.TrimLeft "0" }} &mdash; {{dateFormat "Monday, Jan 2, 2006" (index $.Site.Data.issues (sub (int ((slicestr .Section 6)|strings.TrimLeft "0")) 1)).date}}</p>
         {{ end }}
     </div>
     <div class="content col col-12">
