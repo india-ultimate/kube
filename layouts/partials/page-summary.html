@@ -1,7 +1,7 @@
 <div class="post" id="{{ .Title |urlize }}">
     <h4><a href="{{ .Permalink }}" itemprop="headline">{{ .Title }}</a></h4>
     {{ if .Params.author }}
-        <p><a href="{{ "/author" | relURL }}/{{.Params.author | urlize}}">{{.Params.author}}</a></p>
+        <p><a href="{{ "/author" | relURL }}/{{.Params.author | urlize}}/">{{.Params.author}}</a></p>
     {{ end }}
     {{ .Content }}
     <hr />

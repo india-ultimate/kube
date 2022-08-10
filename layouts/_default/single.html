@@ -6,7 +6,7 @@
   <div id="hero" class="wrap">
     <h1>{{.Title }}</h1>
     {{ if .Params.author }}
-    <p><a href="{{ "/author" | relURL }}/{{.Params.author | urlize}}">{{.Params.author}}</a></p>
+    <p><a href="{{ "/author" | relURL }}/{{.Params.author | urlize}}/">{{.Params.author}}</a></p>
     {{ end }}
     <p>{{dateFormat "Monday, Jan 2, 2006" .Params.date}}</p>
   </div>
