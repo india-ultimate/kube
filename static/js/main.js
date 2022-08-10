@@ -5,12 +5,16 @@ var setup_search = function(documents) {
     if (e.which !== 13) {
       return;
     }
-    var results = index.search(this.value),
-      docs = results.slice(0, 5).map(function(result) {
+    var results = index.search(this.value);
+    var docs = results.map(function(result) {
         return documents.filter(function(doc) {
           return doc.uri == result.ref;
         })[0];
-      });
+    });
+
+    var modal_header = $(".modal-header");
+    var text = modal_header.text();
+    modal_header.text(`Search Results (${results.length})`);
 
     var modal_body = $(".modal-body");
     modal_body.children().remove();
