@@ -10,7 +10,7 @@
         <div class="row gutters">
             {{ range sort $.Site.Data.issues "number" "desc" }}
             <div class="col col-4 item">
-                <h4><a href="issue-{{ (printf "%03v" .number) }}">{{ .title }}</a></h4>
+                <h4><a href="issue-{{ (printf "%03v" .number) }}/">{{ .title }}</a></h4>
                 <p>Issue {{ .number }}</p>
             </div>
             {{ end }}
